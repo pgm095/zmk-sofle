@@ -73,6 +73,50 @@
         };
     };
 
+    macros {
+        braces: braces {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_BRACE &kp RIGHT_BRACE &kp LEFT_ARROW>;
+            label = "BRACES";
+        };
+
+        brackets: brackets {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_BRACKET &kp RIGHT_BRACKET &kp LEFT_ARROW>;
+            label = "BRACKETS";
+        };
+
+        lessmorethan: new_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LT &kp GT &kp LEFT>;
+            label = "NEW_MACRO";
+        };
+
+        single_quotes: single_quotes {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp SINGLE_QUOTE &kp SINGLE_QUOTE &kp LEFT_ARROW>;
+            label = "SINGLE_QUOTES";
+        };
+
+        doble_quotes: doble_quotes {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp DOUBLE_QUOTES &kp DOUBLE_QUOTES &kp LEFT>;
+            label = "DOBLE_QUOTES";
+        };
+
+        backticks: backticks {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp GRAVE &kp GRAVE &kp LEFT_ARROW>;
+            label = "BACKTICKS";
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -104,11 +148,11 @@
 
         layer_2 {
             bindings = <
-&kp TILDE  &bt BT_SEL 0     &bt BT_SEL 1    &bt BT_SEL 2     &bt BT_SEL 3     &bt BT_SEL 4       &mmv MOVE_UP     &kp F6  &kp F7  &kp F8      &kp F9     &kp F10      &trans
-&trans     &bt BT_CLR       &bt BT_CLR_ALL  &trans           &trans           &trans             &mmv MOVE_DOWN   &trans  &trans  &kp F11     &kp F12    &kp UNDER    &kp PLUS
-&trans     &out OUT_USB     &out OUT_BLE    &bootloader      &trans           &trans             &mmv MOVE_LEFT   &trans  &trans  &trans      &trans     &kp LBRC     &kp RBRC
-&trans     &rgb_ug RGB_OFF  &rgb_ug RGB_ON  &rgb_ug RGB_EFF  &rgb_ug RGB_EFR  &rgb_ug RGB_SPI    &mmv MOVE_RIGHT  &trans  &trans  &sys_reset  &soft_off  &bootloader  &trans
-&trans     &trans           &trans          &trans           &trans           &trans             &mkp LCLK        &trans  &trans  &trans      &trans     &trans
+&kp TILDE  &bt BT_SEL 0     &bt BT_SEL 1    &bt BT_SEL 2     &bt BT_SEL 3     &bt BT_SEL 4       &mmv MOVE_UP     &kp F6          &kp F7         &kp F8         &kp F9   &kp F10      &trans
+&trans     &bt BT_CLR       &bt BT_CLR_ALL  &trans           &trans           &trans             &mmv MOVE_DOWN   &kp MINUS       &kp PLUS       &kp F11        &kp F12  &kp UNDER    &kp PLUS
+&trans     &out OUT_USB     &out OUT_BLE    &bootloader      &trans           &trans             &mmv MOVE_LEFT   &braces         &brackets      &lessmorethan  &trans   &kp LBRC     &kp RBRC
+&trans     &rgb_ug RGB_OFF  &rgb_ug RGB_ON  &rgb_ug RGB_EFF  &rgb_ug RGB_EFR  &rgb_ug RGB_SPI    &mmv MOVE_RIGHT  &single_quotes  &doble_quotes  &backticks     &trans   &bootloader  &trans
+&trans     &trans           &trans          &trans           &trans           &trans             &mkp LCLK        &trans          &trans         &trans         &trans   &trans
             >;
 
             display-name = "layer2";
